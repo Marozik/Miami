@@ -334,6 +334,15 @@ svg path {
 .header__action::before {
   font-size: 1.5rem;
   visibility: visible;
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  opacity: 1;
+}
+
+.menu-open .header__action::before {
+  visibility: hidden;
+  opacity: 0;
 }
 
 .header__action span {
@@ -387,13 +396,6 @@ svg path {
 }
 
 .menu__list {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   position: relative;
 }
 
@@ -471,11 +473,19 @@ svg path {
           transform: translateY(0);
 }
 
+.action-menu {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 1.3333333333;
+}
+
 .action-menu__value:not(:last-child) {
   margin-bottom: 1rem;
 }
 
 .action-menu__link {
+  font-weight: 700;
   position: relative;
   padding-bottom: 0.5rem;
 }
@@ -1041,9 +1051,9 @@ svg path {
   resize: vertical;
   min-height: 9rem;
   max-height: 15.625rem;
-  -webkit-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
+  -webkit-transition: border 0.3s ease 0s;
+  -o-transition: border 0.3s ease 0s;
+  transition: border 0.3s ease 0s;
   outline: none;
 }
 
@@ -1826,10 +1836,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     min-height: 8rem;
   }
 
-  .menu__list {
-    row-gap: 2rem;
-  }
-
   .footer__container {
     min-height: 22.4375rem;
   }
@@ -1946,10 +1952,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
 
   .menu__body::before {
     min-height: 6rem;
-  }
-
-  .menu__list {
-    row-gap: 0.9375rem;
   }
 
   .footer__container {
@@ -2177,18 +2179,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
 @supports not (min-height: clamp( 6rem , 5.1232876712rem  +  4.3835616438vw , 8rem )) {
     .menu__body::before {
       min-height: calc(6rem + 2 * (100vw - 20rem) / 45.625);
-    }
-}
-
-@supports (row-gap: clamp( 0.9375rem , 0.4717465753rem  +  2.3287671233vw , 2rem )) {
-    .menu__list {
-      row-gap: clamp( 0.9375rem , 0.4717465753rem  +  2.3287671233vw , 2rem );
-    }
-}
-
-@supports not (row-gap: clamp( 0.9375rem , 0.4717465753rem  +  2.3287671233vw , 2rem )) {
-    .menu__list {
-      row-gap: calc(0.9375rem + 1.0625 * (100vw - 20rem) / 45.625);
     }
 }
 
