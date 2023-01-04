@@ -461,9 +461,9 @@ svg path {
   -webkit-transform: translateY(50%);
       -ms-transform: translateY(50%);
           transform: translateY(50%);
-  -webkit-transition: all 0.5s ease 1.2s;
-  -o-transition: all 0.5s ease 1.2s;
-  transition: all 0.5s ease 1.2s;
+  -webkit-transition: all 0.5s ease 0.5s;
+  -o-transition: all 0.5s ease 0.5s;
+  transition: all 0.5s ease 0.5s;
 }
 
 .menu__action._watcher-view {
@@ -727,9 +727,9 @@ svg path {
   -webkit-transform: translateY(30%);
       -ms-transform: translateY(30%);
           transform: translateY(30%);
-  -webkit-transition: all 0.7s linear 0.1s;
-  -o-transition: all 0.7s linear 0.1s;
-  transition: all 0.7s linear 0.1s;
+  -webkit-transition: all 0.5s ease 0s;
+  -o-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
 }
 
 .line-gallery._watcher-view {
@@ -813,9 +813,9 @@ svg path {
   -webkit-transform: translateY(30%);
       -ms-transform: translateY(30%);
           transform: translateY(30%);
-  -webkit-transition: all 0.7s linear 0.1s;
-  -o-transition: all 0.7s linear 0.1s;
-  transition: all 0.7s linear 0.1s;
+  -webkit-transition: all 0.5s ease 0s;
+  -o-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
   min-width: 15.625rem;
   padding: 0rem 0.75rem;
   -webkit-box-flex: 0;
@@ -2099,6 +2099,20 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     -webkit-box-flex: 1;
         -ms-flex: 1 1 auto;
             flex: 1 1 auto;
+    opacity: 0;
+    -webkit-transform: translateY(30%);
+        -ms-transform: translateY(30%);
+            transform: translateY(30%);
+    -webkit-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
+  }
+
+  .contacts__form._watcher-view {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+            transform: translateY(0);
   }
 }
 

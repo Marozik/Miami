@@ -2591,19 +2591,31 @@ PERFORMANCE OF THIS SOFTWARE.
             }));
             flsModules.gallery = galleyItems;
         }
-        window.addEventListener("scroll", windowScroll);
-        function windowScroll() {
-            const toTopButton = document.querySelector(".to-top");
+        const menuElements = document.querySelectorAll(".menu__list li");
+        if (menuElements.length) menuElements.forEach(((menuElement, index) => {
+            menuElement.style.transitionDelay = `${.1 * index}s`;
+        }));
+        const toTopButton = document.querySelector(".to-top");
+        toTopButton.addEventListener("click", (function(e) {
+            e.preventDefault();
+            scrollToTop(0, 400);
+        }));
+        function scrollToTop(target, duration) {
+            if (duration <= 0) return;
+            let difference = target - document.documentElement.scrollTop;
+            let speed = difference / duration * 10;
+            setTimeout((function() {
+                document.documentElement.scrollTop += speed;
+                if (document.documentElement.scrollTop == target) return;
+                scrollToTop(target, duration - 10);
+            }), 10);
+        }
+        window.addEventListener("scroll", showButton);
+        function showButton() {
             let windowY = window.scrollY;
             let showPosition = 500;
             if (windowY >= showPosition) toTopButton.classList.add("show-to-top"); else toTopButton.classList.remove("show-to-top");
         }
-        const menuElements = document.querySelectorAll(".menu__list li");
-        if (menuElements.length) menuElements.forEach(((menuElement, index) => {
-            menuElement.style.transitionDelay = `${.2 * index}s`;
-        })); else if (".menu-open" !== menuElements.classList.closest) menuElements.forEach((menuElement => {
-            menuElement.style.cssText = `\n        transition: all 0s ease 0s;\n        `;
-        }));
         window["FLS"] = true;
         isWebp();
         menuInit();
